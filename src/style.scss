@@ -594,7 +594,7 @@ img {
   }
 
   .header.second {
-    height: 120vh !important;
+    min-height: 100vh;
     align-content: flex-start;
 
     .form {
