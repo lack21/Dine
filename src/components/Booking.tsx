@@ -23,6 +23,20 @@ function Booking() {
     setTimeText(e.target.id);
   }
 
+  function IncreasePeopleCount() {
+    if (peopleCount === 20) {
+      return alert("Maximum limit has reached!");
+    }
+    setPeopleCount((peopleCount) => (peopleCount += 1));
+  }
+
+  function DecreasePeopleCount() {
+    if (peopleCount === 0) {
+      return alert("Minimum limit has reached!");
+    }
+    setPeopleCount((peopleCount) => (peopleCount -= 1));
+  }
+
   return (
     <>
       <header className="header second">
@@ -74,14 +88,10 @@ function Booking() {
             <img
               src={minusIcon}
               alt="minus-icon"
-              onClick={() => setPeopleCount((peopleCount) => peopleCount - 1)}
+              onClick={DecreasePeopleCount}
             />
             <h3 className="name">{peopleCount} people</h3>
-            <img
-              src={plusIcon}
-              alt="plus-icon"
-              onClick={() => setPeopleCount((peopleCount) => peopleCount + 1)}
-            />
+            <img src={plusIcon} alt="plus-icon" onClick={IncreasePeopleCount} />
           </div>
           <button className="btn">Make Reservation</button>
         </form>
